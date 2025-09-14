@@ -68,3 +68,32 @@
 
 <img width="1920" height="977" alt="14" src="https://github.com/user-attachments/assets/573673de-bdd5-4c02-89d0-8f0b0db0b3ec" />
 
+## Ответы на вопросы (Исследование)
+
+1.	Возможности использования отечественных CDN для ускорения доставки контента
+
+[ngenix](https://ngenix.net/ecp/cdn/) – Есть возможность запросить бесплатный пробный период на 2 недели
+[EDGE Центр](https://edgecenter.ru/cdn) – Есть возможность запросить бесплатный пробный период на 2 недели
+
+
+[Selectel]( https://selectel.ru/services/additional/cdn/)
+[VK Cloud]( https://cloud.vk.com/cdn/)
+[Yandex Cloud](https://yandex.cloud/ru/docs/cdn)
+[cdnvideo](https://www.cdnvideo.ru/solutions/cdn-for-website-acceleration/)
+[Cloud.ru](https://cloud.ru/products/cloud-cdn?utm_source=google.com&utm_medium=organic&utm_campaign=google.com&utm_referrer=google.com)
+
+2. Возможности Gitverse для реализации CI/CD
+
+Судя по документации, Gitverse поддерживает `GitVerse Actions`, схожие по функционалу с `GitHub Actions`: https://gitverse.ru/docs/knowledge-base/actions/runners/  
+
+По аналогии с GitHub Actions, конфигурационные файлы рабочих процессов GitVerse Actions должны быть написаны в синтаксисе YAML и располагаться в .gitverse/workflows/  репозитория.  
+
+Пример из документации: https://gitverse.ru/gitverse_tutorials/CICD_examples/content/demo
+
+3. Какие существуют варианты деплоя статического сайта в продакшен среду и какие технические инструменты для этого могут потребоваться, приведите примеры
+
+- Ручной деплой (загрузка файлов сборки на сервер вручную через клиенты вроде FileZilla)
+
+- Деплой через Git (ряд хостингов имеет возможность автоматически подтягивать изменения из ветки и запускать сборку и деплой. Пример: [Vercel](https://vercel.com/docs/deployments#git))
+
+- Деплой через CI/CD пайплайн (настраивается автоматический конвейер, который запускает скрипты для тестирования, сборки и деплоя автоматически при поступлении нового кода в репозиторий. Пример инструментов: использование `GitHub Actions`, `GitLab-CI`, `Jenkins` для построения пайплайнов).
