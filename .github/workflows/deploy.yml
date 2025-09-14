@@ -3,39 +3,32 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches: [ main, develop ]
-    paths:
-      - 'docs/**'
-      - 'mkdocs.yml'
-      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
-    - name: Set up Python
+    - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: |
-        pip install mkdocs mkdocs-material
+      run: pip install mkdocs mkdocs-material
 
-    - name: Build site
+    - name: Build
       run: mkdocs build
 
-    - name: Deploy to GitHub Pages
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./site
         force_orphan: true
-        keep_files: false
